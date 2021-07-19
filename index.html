@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/Card.css">
     <link rel="stylesheet" href="./css/Filter.css">
     <link rel="stylesheet" href="./css/Pagination.css">
+    <link rel="stylesheet" href="./css/Loading.css">
     <link rel="stylesheet" href="./fonts/icons/css/uicons-regular-rounded.css">
     <script src="https://unpkg.com/vue@next"></script>
     <script src="./app.js"></script>
@@ -20,12 +21,16 @@
             :characters="characters"
             :current-page="currentPage"
             @change-page="handleChangePage"
+            @apply-filters="applyFilters"
+            @remove-filters="applyFilters"
         />
+        <loading :isactive="loading">
     </div>
 </body>
 <script src="./components/Filter.js"></script>
     <script src="./components/Pagination.js"></script>
     <script src="./components/Card.js"></script>
+    <script src="./components/Loading.js"></script>
     <script src="./pages/Home.js"></script>
     <script>
         app.mount('#app')

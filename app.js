@@ -12,12 +12,19 @@ const {
 const app = createApp({
     setup(){
         const currentPage = ref(2);
-        const loading = ref(false);
+        let loading = ref(false);
         const characters = ref({});
-        const getCharacters = async() => {
-            const response = await fetch('https://rickandmortyapi.com/api/character/?page='+currentPage.value);
-            const data = await response.json();
-            characters.value = data;
+        let currentFilters = null;
+        const getCharacters = async(params) => {
+            try {
+                loading.value = true;
+                const response = await fetch(`https://rickandmortyapi.com/api/character/${params}`);
+                const data = await response.json();
+                characters.value = data;
+                loading.value = false;
+            } catch (error) {
+                console.log(error)
+            }
         }
 
         const handleChangePage = (targetPage) =>{
@@ -25,17 +32,28 @@ const app = createApp({
         }
 
         watch(currentPage, (value,oldValue) => {
-            if(oldValue !== value){
-                getCharacters();
+            if(oldValue !== value ){
+                if(currentFilters){
+                    applyFilters(currentFilters);
+                }
+                else{
+                    getCharacters(`?page=${currentPage.value}`);
+                }
             }
         })
 
+        const applyFilters = (filters) => {
+            currentFilters = filters;
+            let params = `?page=${currentPage.value}&name=${currentFilters.name}&status=${currentFilters.status.value}&gender=${currentFilters.gender.value}&species=${currentFilters.specie}`;
+            getCharacters(params);
+        }
+
 
         onMounted(()=>{
-            getCharacters();
+            getCharacters(`?page=${currentPage.value}`);
         });
 
-        return { characters, currentPage, handleChangePage, loading } 
+        return { characters, currentPage, handleChangePage, loading, applyFilters } 
     }
 })
 

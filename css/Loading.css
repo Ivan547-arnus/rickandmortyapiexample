@@ -1,0 +1,27 @@
+.loading_container{
+    position: fixed;
+    top: 0;
+    background: rgb(60, 62, 68);
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    z-index: 15;
+}
+
+.loading_container .icon{
+    color: white;
+    animation-name: rotate;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rotate{
+    from{
+        transform: rotateZ(0deg);
+    }
+    to{
+        transform: rotateZ(360deg);
+    }
+}
