@@ -12,6 +12,7 @@ app.component('home',{
     setup(props, {emit}){
         const screenFilter = reactive({
             handleActive:()=>{
+                console.log("activando")
                 screenFilter.value = true;
             },
             handleDisable:() =>{
@@ -37,9 +38,9 @@ app.component('home',{
         return { handleChangePage, applyFilters, removeFilters, screenFilter }
     },
     template:`
+        <filters @discard-filters="screenFilter.handleDisable" @remove-filters="removeFilters" @apply-filters="applyFilters" :is-active="screenFilter.value"/>
         <div class="home__container" v-if="characters.results">
             <card  :character="item" v-for="(item, index) in characters.results"/>
-            <filters @discard-filters="screenFilter.handleDisable" @remove-filters="removeFilters" @apply-filters="applyFilters" :is-active="screenFilter.value"/>
         </div>
         <div v-if="characters.error" class="home__error">
             <h1>{{characters.error}}</h1>

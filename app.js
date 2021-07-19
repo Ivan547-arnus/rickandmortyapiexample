@@ -19,11 +19,17 @@ const app = createApp({
             try {
                 loading.value = true;
                 const response = await fetch(`https://rickandmortyapi.com/api/character/${params}`);
-                const data = await response.json();
-                characters.value = data;
-                loading.value = false;
-            } catch (error) {
-                console.log(error)
+                if(response.ok){
+                    const data = await response.json();
+                    characters.value = data;
+                    loading.value = false;
+                }else{
+                    const data = await response.json();
+                    characters.value = data;
+                    loading.value = false;
+                }
+            } catch(e) {
+                console.log('error: ', e);  
             }
         }
 
