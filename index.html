@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba Ingeniero QA</title>
+    <link rel="stylesheet" href="./app.css">
+    <link rel="stylesheet" href="./css/Home.css">
+    <link rel="stylesheet" href="./css/Card.css">
+    <link rel="stylesheet" href="./css/Filter.css">
+    <link rel="stylesheet" href="./css/Pagination.css">
+    <link rel="stylesheet" href="./fonts/icons/css/uicons-regular-rounded.css">
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="./app.js"></script>
+</head>
+<body>
+    <div id="app">
+        <home 
+            :characters="characters"
+            :current-page="currentPage"
+            @change-page="handleChangePage"
+        />
+    </div>
+</body>
+<script src="./components/Filter.js"></script>
+    <script src="./components/Pagination.js"></script>
+    <script src="./components/Card.js"></script>
+    <script src="./pages/Home.js"></script>
+    <script>
+        app.mount('#app')
+    </script>
+</html>

@@ -1,0 +1,44 @@
+.pagination__container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.pagination__item{
+    color: white;
+    font-family: 'less-sans';
+    margin: 10px;
+    background: rgb(60, 62, 68);
+    border-radius: 50%;
+    padding: 10px;
+    height: 30px;
+    width: 30px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: all .2s ease;
+    line-height: 35px;
+}
+
+.pagination__item:hover{
+    background: rgb(99, 102, 110);
+    transition: all .2s ease;
+    transform: translateY(-5px);
+}
+
+.pagination__item-selected{
+    color: white;
+    font-family: 'less-sans';
+    margin: 10px;
+    background: rgb(99, 102, 110);
+    border-radius: 50%;
+    padding: 10px;
+    height: 30px;
+    width: 30px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 35px;
+}

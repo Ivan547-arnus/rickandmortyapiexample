@@ -1,0 +1,72 @@
+.filter__container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.8);
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.filter__form{
+    display: grid;
+    width: 220px;
+}
+.filter__form  h1{
+    font-family: 'less-sans-bold';
+    text-align: center;
+    color: white;
+    margin: 0;
+}
+
+.filter__form > strong{
+    font-family: 'less-sans-bold';
+    text-align: left;
+    color: white;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.input{
+    border: 0;
+    background: white;
+    font-family: 'less-sans';
+    height: 40px;
+    width: 100%;
+    padding: 0px 0px 0px 10px;
+    border-radius: 30px;
+    position: relative;
+    margin-bottom: 10px;
+
+}
+
+.filter__form > select{
+    border: 0;
+    background: white;
+    font-family: 'less-sans';
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 30px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.filter__form > button{
+    border: 0;
+    height: 40px;
+    border-radius: 20px;
+    font-family: 'less-sans';
+    background: rgb(60, 62, 68);
+    color: white;
+    margin-bottom: 10px;
+    transition: all .2s ease;
+}
+
+.filter__form > button:hover{
+    background: rgb(99, 102, 110);
+    transition: all .2s ease;
+}
