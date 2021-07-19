@@ -41,7 +41,7 @@ app.component('home',{
             <card  :character="item" v-for="(item, index) in characters.results"/>
             <filters @discard-filters="screenFilter.handleDisable" @remove-filters="removeFilters" @apply-filters="applyFilters" :is-active="screenFilter.value"/>
         </div>
-        <div v-if="characters.error">
+        <div v-if="characters.error" class="home__error">
             <h1>{{characters.error}}</h1>
         </div>
         <div v-if="characters.info">

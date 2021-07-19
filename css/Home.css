@@ -24,3 +24,10 @@
     background: rgb(99, 102, 110);
     transition: all .2s ease;
 }
+
+.home__error{
+    color: white;
+    font-family: 'less-sans-bold';
+    text-align: center;
+    color: white;
+}

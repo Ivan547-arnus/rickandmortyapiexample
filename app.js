@@ -11,7 +11,7 @@ const {
 
 const app = createApp({
     setup(){
-        const currentPage = ref(2);
+        const currentPage = ref(1);
         let loading = ref(false);
         const characters = ref({});
         let currentFilters = null;
