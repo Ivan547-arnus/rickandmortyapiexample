@@ -21,9 +21,16 @@ const app = createApp({
                 const response = await fetch(`https://rickandmortyapi.com/api/character/${params}`);
                 if(response.ok){
                     const data = await response.json();
+                    if(data.error != undefined){
+                        return;
+                    }
                     characters.value = data;
                     loading.value = false;
                 }else{
+                    if(currentPage.value !== 1){
+                        currentPage.value = 1;
+                        return;
+                    }
                     const data = await response.json();
                     characters.value = data;
                     loading.value = false;
